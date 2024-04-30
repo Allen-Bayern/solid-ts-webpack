@@ -1,3 +1,6 @@
-import RouterView from '@/routes';
+/** @description Main component */
+function App() {
+    return <div>hello world</div>;
+}
 
-export default () => <RouterView />;
+export default App;
