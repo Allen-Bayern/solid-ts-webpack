@@ -12,6 +12,8 @@ const { DefinePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+const { withBasePath } = require('./utils');
+
 /**
  * Generate a basic config
  * @param {Record<string, unknown>} options config options
@@ -44,7 +46,7 @@ const createBasicConfig = (options = {}) => {
                 styleType: 'scss',
                 styleResourcePatterns: [
                     // use scss
-                    path.resolve(__dirname, '../src/assets/scss/_globals.scss'),
+                    withBasePath('src/assets/scss/_globals.scss'),
                 ],
             }),
 
@@ -61,15 +63,15 @@ const createBasicConfig = (options = {}) => {
         new Config()
             // set entry
             .entry('index')
-            .add(path.resolve(__dirname, '../src/index.tsx'))
+            .add(withBasePath('/src/index.tsx'))
             .end()
             // output
-            .output.path(path.resolve(__dirname, '../dist'))
+            .output.path(withBasePath('dist'))
             .filename('[name].[contenthash].bundle.js')
             .publicPath('/')
             .end()
             // set alias
-            .resolve.alias.set('@', path.resolve(__dirname, '../src'))
+            .resolve.alias.set('@', withBasePath('src'))
             .end()
             .extensions.add('.js')
             .add('.jsx')
@@ -108,12 +110,12 @@ const createBasicConfig = (options = {}) => {
             .plugin('HtmlWebpackPlugin')
             .use(HtmlWebpackPlugin, [
                 {
-                    template: path.resolve(__dirname, '../html/index.htm'),
+                    template: withBasePath('html/index.htm'),
                     templateParameters: {
                         lang,
                     },
                     inject: 'body',
-                    favicon: path.resolve(__dirname, '../html/favicon-solid.png'),
+                    favicon: withBasePath('html/favicon-solid.png'),
                     title,
                 },
             ])

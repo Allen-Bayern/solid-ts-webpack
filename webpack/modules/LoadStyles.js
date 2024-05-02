@@ -4,10 +4,7 @@
  * @param {import('./LoadStyles_types').OtherConf} otherConf
  * @returns the config
  */
-const loadStyles = (
-    confInstance,
-    { isDev = true, styleType = 'css', styleResourcePatterns = [], isCssModules = true }
-) => {
+const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResourcePatterns = [] }) => {
     const { loader: miniLoader } = require('mini-css-extract-plugin');
     const sourceMap = !isDev;
 

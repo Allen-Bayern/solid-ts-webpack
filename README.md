@@ -8,15 +8,15 @@ Really basic starter. This build has a very minimal typescript setup with webpac
 
 ```sh
 # Using npx
-npx degit https://github.com/sspkudx/react-ts-webpack5.git YOUR_PROJECT_DIRECTORY
+npx degit https://github.com/My-Project-Template/solid-ts-webpack5.git YOUR_PROJECT_DIRECTORY
 npm i
 
 # Using yarn
-yarn dlx degit https://github.com/sspkudx/react-ts-webpack5.git YOUR_PROJECT_DIRECTORY
+yarn dlx degit https://github.com/My-Project-Template/solid-ts-webpack5.git YOUR_PROJECT_DIRECTORY
 yarn
 
 # Using pnpm
-pnpm dlx degit https://github.com/sspkudx/react-ts-webpack5.git YOUR_PROJECT_DIRECTORY
+pnpm dlx degit https://github.com/My-Project-Template/solid-ts-webpack5.git YOUR_PROJECT_DIRECTORY
 pnpm up
 ```
 
