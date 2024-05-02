@@ -4,7 +4,23 @@ Really basic starter. This build has a very minimal typescript setup with webpac
 
 [中文文档 (并非逐字逐句翻译)](./README_zh-cn.md)
 
+## Clone the repository as your project's template
+
+```sh
+# Using npx
+npx degit https://github.com/sspkudx/react-ts-webpack5.git YOUR_PROJECT_DIRECTORY
+npm i
+
+# Using yarn
+yarn dlx degit https://github.com/sspkudx/react-ts-webpack5.git YOUR_PROJECT_DIRECTORY
+yarn
+
+# Using pnpm
+pnpm dlx degit https://github.com/sspkudx/react-ts-webpack5.git YOUR_PROJECT_DIRECTORY
+pnpm up
+```
+
 ## References
 
-* [changelog](./CHANGELOG.md)
-* [webpack config](./webpack/webpack.base.js)
+-   [changelog](./CHANGELOG.md)
+-   [webpack config](./webpack/webpack.base.js)
