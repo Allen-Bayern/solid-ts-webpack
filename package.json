@@ -56,6 +56,7 @@
     "@solidjs/router": "^0.13.2",
     "compose-function": "^3.0.3",
     "core-js": "^3.37.0",
+    "immer": "^10.1.1",
     "lodash": "^4.17.21",
     "solid-js": "^1.8.17"
   },
