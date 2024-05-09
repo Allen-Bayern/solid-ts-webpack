@@ -1,5 +1,6 @@
 import { type ParentComponent } from 'solid-js';
-import './_App.scss';
+import { HashRouter } from '@solidjs/router';
+import { routerList } from './views/router';
 
 /**
  * @description Main component.
@@ -8,7 +9,7 @@ import './_App.scss';
  * The type of the component should be `ParentComponent`.
  */
 const App: ParentComponent = () => {
-    return <div class="hello">hello world</div>;
+    return <HashRouter>{routerList}</HashRouter>;
 };
 
 export default App;
