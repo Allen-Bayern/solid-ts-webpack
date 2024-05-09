@@ -1,3 +1,5 @@
+const exportLocalsConvention = 'camelCase';
+
 /**
  * @description config style loads
  * @param {import('webpack-chain')} confInstance
@@ -26,6 +28,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
                 modules: {
                     auto: resourcePath => resourcePath.endsWith('.sass'),
                     localIdentName: '[local]__[hash:base64]',
+                    exportLocalsConvention,
                 },
             })
             .end()
@@ -104,6 +107,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
                 modules: {
                     auto: resourcePath => resourcePath.endsWith('.scss'),
                     localIdentName: '[local]__[hash:base64]',
+                    exportLocalsConvention,
                 },
             })
             .end()
@@ -178,6 +182,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
                 modules: {
                     auto: resourcePath => resourcePath.endsWith('.less'),
                     localIdentName: '[local]__[hash:base64]',
+                    exportLocalsConvention,
                 },
             })
             .end()
@@ -246,6 +251,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
                 modules: {
                     auto: resourcePath => resourcePath.endsWith('.styl') || resourcePath.endsWith('.stylus'),
                     localIdentName: '[local]__[hash:base64]',
+                    exportLocalsConvention,
                 },
             })
             .end()
@@ -313,6 +319,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             modules: {
                 auto: resourcePath => resourcePath.endsWith('.css'),
                 localIdentName: '[local]__[hash:base64]',
+                exportLocalsConvention,
             },
         })
         .end()
