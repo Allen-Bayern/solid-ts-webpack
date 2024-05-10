@@ -8,6 +8,7 @@ interface CreateImmerOptions<T = unknown> extends SignalOptions<T> {
     isDeep?: boolean;
 }
 
+/** @description Rewrite the equal function of number */
 const numberEqual = <T extends number = number>(num1: T, num2: T): boolean => {
     if (Number.isNaN(num1) && Number.isNaN(num2)) {
         return true;
@@ -39,15 +40,7 @@ export function createImmer<T = unknown>(
                 const prevKeys = [...Object.keys(prev), ...Object.getOwnPropertySymbols(prev)];
                 const nextKeys = [...Object.keys(nextValue), ...Object.getOwnPropertySymbols(nextValue)];
 
-                const publicKeys = Array.from(
-                    new Set([
-                        ...Object.keys(prev),
-                        ...Object.getOwnPropertySymbols(prev),
-                        ...Object.keys(nextValue),
-                        ...Object.getOwnPropertySymbols(nextValue),
-                    ])
-                );
-
+                const publicKeys = Array.from(new Set([...prevKeys, ...nextKeys]));
                 if (publicKeys.length !== prevKeys.length || prevKeys.length !== nextKeys.length) {
                     return false;
                 }
