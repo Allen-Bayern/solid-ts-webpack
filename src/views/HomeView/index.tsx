@@ -1,5 +1,5 @@
 import { createEffect, type ParentComponent } from 'solid-js';
-import { createImmer } from '@/hooks';
+import { createImmer } from '@/utils';
 import styles from './_style.module.scss';
 
 const HomeView: ParentComponent = () => {
