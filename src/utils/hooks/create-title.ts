@@ -1,7 +1,11 @@
 import { onMount, onCleanup } from 'solid-js';
 
-/** @description to use `document.title` */
-export const createDocumentTitle = (title = ''): void => {
+/**
+ * @description to use `document.title`
+ * @param title the title you want to set
+ * @param defaultTitle the default title
+ */
+export const createDocumentTitle = (title = '', defaultTitle = ''): void => {
     let isSetTitle = false;
 
     onMount(() => {
@@ -13,7 +17,7 @@ export const createDocumentTitle = (title = ''): void => {
 
     onCleanup(() => {
         if (isSetTitle) {
-            document.title = '';
+            document.title = defaultTitle;
         }
     });
 };
