@@ -1,5 +1,5 @@
 import { createSignal, type SignalOptions } from 'solid-js';
-import { isEqual, uniq } from 'lodash';
+import { isEqual, intersection } from 'lodash';
 import { produce, freeze as immerFreeze } from 'immer';
 
 type Updater<T> = (draft: T) => void;
@@ -23,8 +23,8 @@ const shallowEqual = <T>(prev: T, nextValue: T): boolean => {
         if (prev !== null && nextValue !== null) {
             const prevKeys = [...Object.keys(prev), ...Object.getOwnPropertySymbols(prev)];
             const nextKeys = [...Object.keys(nextValue), ...Object.getOwnPropertySymbols(nextValue)];
+            const publicKeys = intersection([...prevKeys, ...nextKeys]);
 
-            const publicKeys = uniq([...prevKeys, ...nextKeys]);
             if (publicKeys.length !== prevKeys.length || prevKeys.length !== nextKeys.length) {
                 return false;
             }
