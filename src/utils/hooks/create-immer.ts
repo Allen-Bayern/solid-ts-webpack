@@ -1,7 +1,7 @@
 import { createSignal, type SignalOptions } from 'solid-js';
 import { isEqual } from 'lodash';
 import { produce, freeze as immerFreeze } from 'immer';
-import { numberEqual } from '@/utils';
+import { numberEqual } from '../number-equal';
 
 type Updater<T> = (draft: T) => void;
 
