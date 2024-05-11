@@ -1,2 +1,3 @@
 export { createImmer, type CreateImmerOptions } from './create-immer';
-export * from './create-timers';
+export { createInterval, createTimeout } from './create-timers';
+export { createDocumentTitle, createTitle } from './create-title';
