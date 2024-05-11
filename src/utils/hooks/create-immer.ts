@@ -111,7 +111,7 @@ export function createImmer<T = unknown>(
         return shallowEqual;
     };
 
-    const [state, setState] = createSignal(immerFreeze(v), {
+    const [state, setState] = createSignal(immerFreeze(v, true), {
         ...restOpts,
         equals: getEquals(),
     });
