@@ -1,8 +1,14 @@
 import { createEffect, type ParentComponent } from 'solid-js';
-import { createImmer } from '@/utils';
+import { createImmer, createTitle, createInterval } from '@/utils';
 import styles from './_style.module.scss';
 
 const HomeView: ParentComponent = () => {
+    createTitle('Solid.js测试', 'Solid.js starter');
+
+    const [clearInter] = createInterval(() => {
+        console.log('Hello World!');
+    }, 1000);
+
     const [obj, updateObj] = createImmer({
         hello: 0,
     });
@@ -11,6 +17,8 @@ const HomeView: ParentComponent = () => {
         updateObj(draft => {
             draft.hello += 1;
         });
+
+        clearInter();
     };
 
     createEffect(() => {
