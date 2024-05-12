@@ -13,23 +13,11 @@ module.exports = {
     },
     plugins: ['@typescript-eslint', 'prettier', 'solid'],
     rules: {
-        indent: [
-            'error',
-            4,
-            {
-                SwitchCase: 1,
-            },
-        ],
+        indent: ['error', 4, { SwitchCase: 1 }],
         'linebreak-style': ['error', 'unix'],
-        quotes: ['error', 'single'],
+        quotes: ['error', 'single', { avoidEscape: true }],
         semi: ['error', 'always'],
-        'prettier/prettier': [
-            'error',
-            {},
-            {
-                usePrettierrc: true,
-            },
-        ],
+        'prettier/prettier': ['error', {}, { usePrettierrc: true }],
         '@typescript-eslint/no-var-requires': 'off',
     },
 };
