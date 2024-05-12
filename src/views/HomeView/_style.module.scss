@@ -1,3 +1,22 @@
 .home-view {
-    color: $shallow-black;
+    display: flex;
+    flex-flow: column;
+
+    &-val {
+        font-size: 20px;
+
+        &-label {
+            margin-right: 0.5em;
+        }
+
+        &-value {
+            color: $shallow-black;
+            font-weight: 500;
+        }
+    }
+
+    &-btn {
+        margin-top: 16px;
+        width: 64px;
+    }
 }

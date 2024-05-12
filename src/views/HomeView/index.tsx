@@ -1,40 +1,36 @@
 import { createEffect, type ParentComponent } from 'solid-js';
-import { createImmer, createTitle, createInterval } from '@/utils';
+import { createTitle, createSet } from '@/utils';
 import styles from './_style.module.scss';
 
 const HomeView: ParentComponent = () => {
-    createTitle('Solid.js测试', 'Solid.js starter');
+    createTitle('HomeView', 'solid-ts-webpack-starter');
 
-    const [clearInter] = createInterval(() => {
-        console.log('Hello World!');
-    }, 1000);
+    const [testSet, testSetMethods] = createSet<number>();
 
-    const [obj, updateObj] = createImmer({
-        hello: 0,
-    });
+    const addToSet = () => {
+        const { random, floor } = Math;
 
-    const toAddHello = () => {
-        updateObj(draft => {
-            draft.hello += 1;
-        });
-
-        clearInter();
+        const randomInt = floor(100 * random());
+        testSetMethods.add(randomInt);
     };
 
     createEffect(() => {
-        console.log(obj());
+        console.log(testSet());
     });
 
     return (
         <div class={styles.homeView}>
-            <p>Hello world</p>
+            <p class={styles.homeViewValLabel}>
+                <span class={styles.homeViewValLabel}>The current value of set is: </span>
+                <span class={styles.homeViewValValue}>{String(Array.from(testSet()))}</span>
+            </p>
             <button
+                class={styles.homeViewBtn}
                 type="button"
-                onClick={toAddHello}
+                onClick={addToSet}
             >
-                +1
+                Add Set
             </button>
-            <p>{obj().hello}</p>
         </div>
     );
 };
