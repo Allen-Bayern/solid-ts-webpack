@@ -165,6 +165,13 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
     }
 
     if (styleType === 'less') {
+        const lessLoaderOptions = {
+            sourceMap,
+            lessOptions: {
+                javascriptEnabled: true,
+            },
+        };
+
         return confInstance.module
             .rule('less')
             .test(/\.less$/i)
@@ -192,7 +199,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             .end()
             .use('less')
             .loader('less-loader')
-            .options({ sourceMap })
+            .options(lessLoaderOptions)
             .end()
             .use('style-resource')
             .loader('style-resources-loader')
@@ -220,7 +227,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             .end()
             .use('less')
             .loader('less-loader')
-            .options({ sourceMap })
+            .options(lessLoaderOptions)
             .end()
             .use('style-resource')
             .loader('style-resources-loader')

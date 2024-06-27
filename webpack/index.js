@@ -36,6 +36,12 @@ const createBasicConfig = (options = {}) => {
         conf =>
             loadStyles(conf, {
                 isDev,
+                styleType: 'less',
+            }),
+        /** @param {Config} conf config */
+        conf =>
+            loadStyles(conf, {
+                isDev,
                 styleType: 'sass',
             }),
 

@@ -1,8 +1,8 @@
 const { resolve } = require('path');
 
 /**
- * @description 封装路径, 直接从项目根目录开始, 不用写复杂的...了
- * @param {string} pathFromBase 从项目根目录开始的路径
+ * @description write path as from root path
+ * @param {string} pathFromBase the path from the root of the project
  * @returns 路径
  */
 function withBasePath(pathFromBase = '') {
