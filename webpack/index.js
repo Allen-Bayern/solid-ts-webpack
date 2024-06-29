@@ -1,4 +1,3 @@
-const path = require('path');
 const Config = require('webpack-chain');
 const compose = require('compose-function');
 const { loadStyles } = require('./modules/LoadStyles.js');

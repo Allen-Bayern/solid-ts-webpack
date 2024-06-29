@@ -1,4 +1,8 @@
 const exportLocalsConvention = 'camelCase';
+// key for css-modules
+const moduleKey = 'css-modules';
+// key for css-normal
+const normalKey = 'css-normal';
 
 /**
  * @description config style loads
@@ -14,7 +18,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
         return confInstance.module
             .rule('sass')
             .test(/\.sass$/i)
-            .oneOf('css-modules')
+            .oneOf(moduleKey)
             .test(/\.module\.\w+$/i)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
@@ -52,7 +56,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             })
             .end()
             .end()
-            .oneOf('css-normal')
+            .oneOf(normalKey)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
             .end()
@@ -93,7 +97,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
         return confInstance.module
             .rule('scss')
             .test(/\.scss$/i)
-            .oneOf('css-module')
+            .oneOf(moduleKey)
             .test(/\.module\.\w+$/i)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
@@ -129,7 +133,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             })
             .end()
             .end()
-            .oneOf('css-modules')
+            .oneOf(normalKey)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
             .end()
@@ -165,7 +169,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
     }
 
     if (styleType === 'less') {
-        const lessLoaderOptions = {
+        const lessLoaderBasicOptions = {
             sourceMap,
             lessOptions: {
                 javascriptEnabled: true,
@@ -175,7 +179,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
         return confInstance.module
             .rule('less')
             .test(/\.less$/i)
-            .oneOf('css-modules')
+            .oneOf(moduleKey)
             .test(/\.module\.\w+$/i)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
@@ -199,7 +203,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             .end()
             .use('less')
             .loader('less-loader')
-            .options(lessLoaderOptions)
+            .options({ ...lessLoaderBasicOptions })
             .end()
             .use('style-resource')
             .loader('style-resources-loader')
@@ -208,7 +212,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             })
             .end()
             .end()
-            .oneOf('css-modules')
+            .oneOf(normalKey)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
             .end()
@@ -227,7 +231,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             .end()
             .use('less')
             .loader('less-loader')
-            .options(lessLoaderOptions)
+            .options({ ...lessLoaderBasicOptions })
             .end()
             .use('style-resource')
             .loader('style-resources-loader')
@@ -244,7 +248,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
         return confInstance.module
             .rule('stylus')
             .test(/\.styl(us)?$/i)
-            .oneOf('css-modules')
+            .oneOf(moduleKey)
             .test(/\.module\.\w+$/i)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
@@ -277,7 +281,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
             })
             .end()
             .end()
-            .oneOf('normal')
+            .oneOf(normalKey)
             .use('style')
             .loader(isDev ? 'style-loader' : miniLoader)
             .end()
@@ -312,7 +316,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
     return confInstance.module
         .rule('css')
         .test(/\.css$/i)
-        .oneOf('css-module')
+        .oneOf(moduleKey)
         .test(/\.module\.\w+$/i)
         .use('style')
         .loader(isDev ? 'style-loader' : miniLoader)
@@ -341,7 +345,7 @@ const loadStyles = (confInstance, { isDev = true, styleType = 'css', styleResour
         })
         .end()
         .end()
-        .oneOf('css-modules')
+        .oneOf(normalKey)
         .use('style')
         .loader(isDev ? 'style-loader' : miniLoader)
         .end()
